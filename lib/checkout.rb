@@ -26,7 +26,7 @@ class Checkout
           half_price_offer(item, count)
         end
       else
-        @total += prices.fetch(item) * count
+        no_deal(item, count)
       end
     end
 
