@@ -12,8 +12,7 @@ class Checkout
   end
 
   def total
-
-    basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }.each do |item, count|
+    basket_count.each do |item, count|
       if item == :apple || item == :pear
         if (count % 2 == 0)
           @total += prices.fetch(item) * (count / 2)
@@ -35,11 +34,12 @@ class Checkout
     @total
   end
 
+  def basket_count
+    basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }
+  end
+
   private
 
-  # def two_for_one(item, count)
- 
-  # end
 
   def basket
     @basket ||= Array.new
