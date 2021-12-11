@@ -13,18 +13,13 @@ class Checkout
 
   def total
     basket_count.each do |item, count|
-      if item == :apple || item == :pear
-        if (count % 2 == 0)
-          two_for_one(item, count)
-        else
-          no_deal(item, count)
-        end
-      elsif item == :banana || item == :pineapple
-        if item == :pineapple
-          half_price_restricted_to_one_per_person(item, count)
-        else
-          half_price_offer(item, count)
-        end
+      case item 
+      when :apple, :pear
+        count % 2 == 0 ? two_for_one(item, count) : no_deal(item, count)
+      when :banana
+        half_price_offer(item, count)
+      when :pineapple
+        half_price_restricted_to_one_per_person(item, count)
       else
         no_deal(item, count)
       end
@@ -32,6 +27,9 @@ class Checkout
 
     @total
   end
+  
+  private
+
 
   def basket_count
     basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }
@@ -42,7 +40,7 @@ class Checkout
   end
 
   def two_for_one(item, count)
-    @total += prices.fetch(item) * (count / 2)
+      @total += prices.fetch(item) * (count / 2)
   end
 
   def half_price_restricted_to_one_per_person(item, count)
@@ -54,10 +52,8 @@ class Checkout
     @total += (prices.fetch(item) / 2) * count
   end
 
-  private
-
-
   def basket
     @basket ||= Array.new
   end
+  
 end
