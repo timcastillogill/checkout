@@ -17,7 +17,7 @@ class Checkout
         if (count % 2 == 0)
           two_for_one(item, count)
         else
-          @total += prices.fetch(item) * count
+          no_deal(item, count)
         end
       elsif item == :banana || item == :pineapple
         if item == :pineapple
@@ -36,6 +36,10 @@ class Checkout
 
   def basket_count
     basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }
+  end
+
+  def no_deal(item, count)
+    @total += prices.fetch(item) * count
   end
 
   def two_for_one(item, count)
