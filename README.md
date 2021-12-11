@@ -29,3 +29,9 @@ I want to see the total cost of items inputted with discounts <br>
 
 1. cd into the folder
 2. Run rspec on the command line
+
+## Given More Time
+
+1. Added functionality to dynamically add/change deals to items
+2. Added functionality to dynamically change prices of items
+3. Create methods for CRUD capability in the price/deal database
