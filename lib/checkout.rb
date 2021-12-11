@@ -21,8 +21,7 @@ class Checkout
         end
       elsif item == :banana || item == :pineapple
         if item == :pineapple
-          @total += (prices.fetch(item) / 2)
-          @total += (prices.fetch(item)) * (count - 1)
+          half_price_restricted_to_one_per_person(item, count)
         else
           @total += (prices.fetch(item) / 2) * count
         end
@@ -44,6 +43,11 @@ class Checkout
 
   def two_for_one(item, count)
     @total += prices.fetch(item) * (count / 2)
+  end
+
+  def half_price_restricted_to_one_per_person(item, count)
+    @total += (prices.fetch(item) / 2)
+    @total += (prices.fetch(item)) * (count - 1)
   end
 
   private
