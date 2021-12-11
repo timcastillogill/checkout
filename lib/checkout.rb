@@ -15,7 +15,7 @@ class Checkout
     basket_count.each do |item, count|
       if item == :apple || item == :pear
         if (count % 2 == 0)
-          @total += prices.fetch(item) * (count / 2)
+          two_for_one(item, count)
         else
           @total += prices.fetch(item) * count
         end
@@ -36,6 +36,10 @@ class Checkout
 
   def basket_count
     basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }
+  end
+
+  def two_for_one(item, count)
+    @total += prices.fetch(item) * (count / 2)
   end
 
   private
