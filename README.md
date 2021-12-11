@@ -7,17 +7,17 @@ come in.
 
 ## User Stories
 
-As a software engineer
-So that I can quickly see what this method is doing
-I want to DRY and easily readable code
+As a software engineer <br>
+So that I can quickly see what this method is doing <br>
+I want to DRY and easily readable code <br>
 
-As a user
-So that I can total items in a basket
-I want to see the total cost of items inputted without discounts
+As a user <br>
+So that I can total items in a basket <br>
+I want to see the total cost of items inputted without discounts <br>
 
-As a user
-So that I can quickly see totals including discounts applied
-I want to see the total cost of items inputted with discounts
+As a user <br>
+So that I can quickly see totals including discounts applied <br>
+I want to see the total cost of items inputted with discounts <br>
 
 ## Installation
 
