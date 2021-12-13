@@ -22,7 +22,7 @@ I want to see the total cost of items inputted with discounts <br>
 ## Installation
 
 1. clone the repo
-2. cd student-beans-backend-code-test
+2. cd checkout
 3. bundle install
 
 ### Rspec Tests
